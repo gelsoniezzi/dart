@@ -1,4 +1,4 @@
-name: dart_poo
+name: classifica
 description: A sample command-line application.
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
@@ -15,4 +15,9 @@ dev_dependencies:
   test: ^1.24.0
 
 assets:
-  - /lib/concurso/lista.json
+  assets/lista.json
+
+analyzer:
+  language:
+    strict-raw-types: true
+    strict-casts: true
