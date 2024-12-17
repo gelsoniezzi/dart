@@ -11,7 +11,7 @@ void main(List<String> arguments) {
   //print('${listaParsed.runtimeType} : $listaParsed');
 
   // Esse trecho mostra o candidato em segundo lugar na lista "PCD"
-  print(listaParsed["PCD"][1]);
+  // print(listaParsed["PCD"][1]);
 
   //aqui eu posso instanciar todos os candidatos
   Candidato primeiro = Candidato(nome: 'Gelson', pontuacao: 69.8, );
@@ -35,6 +35,7 @@ void main(List<String> arguments) {
   // Nesse trecho, é criado uma lista com os elementos da lista [PCD]
   List<dynamic> candidatosJson = listaMap["N"];
   print(listaMap.length);
+  
   /*
   List<Candidato> candidatos = [];
   for (var categoria in listaMap.keys){
@@ -44,15 +45,17 @@ void main(List<String> arguments) {
       
     }
   }
+  */
 
-
-  List<Candidato> candidatos =  [];
-  for (var categoria in listaMap.keys){
-    candidatos = listaMap[categoria].map((json) {
+  
+  List<Candidato> candidatos =  <Candidato>[];
+  for (String categoria in listaMap.keys){
+    candidatos = candidatos + listaMap[categoria].map<Candidato>((json) {
       return Candidato(nome: json['CANDIDATO'], pontuacao: json['PONTUAÇÃO FINAL']);
     }).toList();
   }
-  */
+  
+  
 
   // Para cada elemento do json deve-se criar a lista de candidatos
   //List<dynamic> candidatos = listaMap.map(convert)  
@@ -63,16 +66,15 @@ void main(List<String> arguments) {
   
 
   //O interessante é que essa linha de baixo, utilizando-se do candidatosJson o serviço é realizado.
-  
-
-
-  List<Candidato> candidatos = candidatosJson.map((json) {
+  /*
+  List<Candidato> candidatos = candidatosJson.map<Candidato>( (dynamic json) {
     return Candidato(
       nome: json['CANDIDATO'],
       pontuacao: json['PONTUAÇÃO FINAL'].toDouble(),);      
   }).toList();
+  */
 
-  print(candidatos.toString());
+  print(candidatos);
 
 
   
